@@ -7,6 +7,14 @@ use App\Models\SimpananTotalModel;
 
 class Home extends BaseController
 {
+	public function __construct()
+	{
+		$session = \Config\Services::session();
+		if (!$session->has('id')) {
+			throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+			die;
+		}
+	}
 	public function index()
 	{
 		return view('admin/dashboard', [

@@ -11,11 +11,11 @@ class SaldoKas extends BaseController
 
   public function __construct()
   {
-    // $session = \Config\Services::session();
-    // if (!$session->has('id')) {
-    //   throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-    //   die;
-    // }
+    $session = \Config\Services::session();
+    if (!$session->has('id')) {
+      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+      die;
+    }
     $this->saldo = new SaldoKasModel();
   }
 
@@ -49,7 +49,7 @@ class SaldoKas extends BaseController
       'tahun' => ['label' => 'Tahun', 'rules' => 'required'],
       'jumlah' => ['label' => 'Jumlah Saldo', 'rules' => 'required'],
     ])) {
-      return redirect()->to('/kas/tambah')->withInput();
+      return redirect()->to('/saldokas/tambah')->withInput();
     }
 
     $this->saldo->save([
@@ -69,7 +69,7 @@ class SaldoKas extends BaseController
       'tahun' => ['label' => 'Tahun', 'rules' => 'required'],
       'jumlah' => ['label' => 'Jumlah Saldo', 'rules' => 'required'],
     ])) {
-      return redirect()->to("/kas/{$this->request->getPost('id')}/tambah")->withInput();
+      return redirect()->to("/saldokas/{$this->request->getPost('id')}/tambah")->withInput();
     }
 
     $this->saldo->update($this->request->getPost('id'), [

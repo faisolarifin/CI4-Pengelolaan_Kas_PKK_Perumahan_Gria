@@ -12,11 +12,11 @@ class Pinjaman extends BaseController
 
   public function __construct()
   {
-    // $session = \Config\Services::session();
-    // if (!$session->has('id')) {
-    //   throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-    //   die;
-    // }
+    $session = \Config\Services::session();
+    if (!$session->has('id')) {
+      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+      die;
+    }
     $this->pinjaman = new PinjamanModel();
     $this->basic = new LibBasic();
   }
@@ -24,7 +24,7 @@ class Pinjaman extends BaseController
   public function index()
 	{
 		return view('admin/pinjaman/data_pinjaman', [
-      'data' => $this->pinjaman->findAll(),
+      'data' => $this->pinjaman->getPinjaman(),
       'basic' => $this->basic
     ]);
 	}

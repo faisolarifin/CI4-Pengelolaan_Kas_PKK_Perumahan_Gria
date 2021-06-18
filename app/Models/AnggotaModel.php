@@ -9,7 +9,7 @@ class AnggotaModel extends Model
   protected $primaryKey = 'nik';
   protected $useTimestamps = false;
   protected $useAutoIncrement = false;
-  protected $allowedFields = ['nik', 'nama', 'username', 'password', 'tgl_registrasi', 'role'];
+  protected $allowedFields = ['nik', 'nama', 'telp', 'alamat', 'username', 'password', 'tgl_registrasi', 'role'];
 
   public function getAnggota($id = false) {
 

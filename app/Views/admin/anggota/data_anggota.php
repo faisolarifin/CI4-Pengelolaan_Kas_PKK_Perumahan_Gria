@@ -50,6 +50,8 @@
                     <th scope="col">#</th>
                     <th scope="col">NIK</th>
                     <th scope="col">Nama</th>
+                    <th scope="col">Telp</th>
+                    <th scope="col">Alamat</th>
                     <th scope="col">Username</th>
                     <th scope="col">Tanggal Registasi</th>
                     <th scope="col">Role</th>
@@ -65,6 +67,8 @@
                         <th scope="row"><?= $i++; ?></th>
                         <td><?= $row['nik'] ?></td>
                         <td><?= $row['nama'] ?></td>
+                        <td><?= $row['telp'] ?></td>
+                        <td><?= $row['alamat'] ?></td>
                         <td><?= $row['username'] ?></td>
                         <td><?= $basic->myDate($row['tgl_registrasi']) ?></td>
                         <td><?= $row['role'] ?></td>

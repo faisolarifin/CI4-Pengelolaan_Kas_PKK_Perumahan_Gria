@@ -53,8 +53,12 @@
                 </div>
             </div>
             <div class="form-group">
-              <label for="text1">Lama (/bulan)</label>
-              <input type="number" class="form-control <?= ($validation->hasError('jml')) ? 'is-invalid' : '' ?>" id="text1" name="lama" value="<?= old('lama') ?>">
+              <label for="text1">Bunga</label>
+              <input type="text" class="form-control" id="text1" name="bunga" value="<?= $bunga ?>%" readonly>
+            </div>
+            <div class="form-group">
+              <label for="text1">Lama (bulan)</label>
+              <input type="number" class="form-control <?= ($validation->hasError('lama')) ? 'is-invalid' : '' ?>" id="text1" name="lama" value="<?= old('lama') ?>">
                 <div class="invalid-feedback">
                   <?= $validation->getError('lama') ?>
                 </div>

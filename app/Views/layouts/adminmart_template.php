@@ -130,7 +130,32 @@
       echo $this->include('layouts/navbar_anggota');
 
     endif;
-  ?>
+
+      if ($session->has('error-message')):
+    ?>
+        <div class="fixed-top mt-sm-2 mr-sm-2 alert-toast toast-alert">
+            <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+                <div class="toast fade show" data-autohide="false" style="position: absolute; top: 0; right: 0;">
+                    <div class="toast-header">
+                        <?php if ($session->getFlashdata('error-status') == 'success'){ ?>
+                          <strong class="mr-auto ml-2 text-success">Success</strong>
+                        <?php  } else { ?>
+                          <strong class="mr-auto ml-2 text-danger">Alert</strong>
+                        <?php } ?>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        <?= $session->getFlashdata('error-message') ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php
+        endif;
+    ?>
+
   <!-- ============================================================== -->
   <!-- Page wrapper  -->
   <!-- ============================================================== -->
@@ -193,6 +218,14 @@
 
         });
       });
+
+      $('.close').click(function() {
+        $('.toast-alert').slideUp()
+      })
+
+      setTimeout(function(){ 
+        $('.toast-alert').slideUp()
+      }, 3000);
   } );
 </script>
 </body>

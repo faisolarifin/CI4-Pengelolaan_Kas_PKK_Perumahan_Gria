@@ -15,11 +15,11 @@ class Simpanan extends BaseController
 
   public function __construct()
   {
-    // $session = \Config\Services::session();
-    // if (!$session->has('id')) {
-    //   throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-    //   die;
-    // }
+    $session = \Config\Services::session();
+    if (!$session->has('id')) {
+      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+      die;
+    }
     $this->simpanan = new SimpananModel();
     $this->anggota = new AnggotaModel();
     $this->total = new SimpananTotalModel();
@@ -29,7 +29,7 @@ class Simpanan extends BaseController
   public function index()
 	{
 		return view('admin/simpanan/data_simpanan', [
-      'simpanan' => $this->simpanan->findAll(),
+      'simpanan' => $this->simpanan->getSimpanan(),
       'basic' => new LibBasic()
     ]);
 	}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+* {
+    font-family: Poppins;
+}
+.header-link {
+    background: url("/assets/img/header-back.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 610px;
+}
+
+.nav-menu li {
+    margin-left: 8px;
+    margin-right: 8px;
+    font-size: 18px;
+}
+.nav-menu li > a {
+    color: #fff;
+}
+.navbar .navbar-toggler {
+    border: 1px solid #7C23C9;
+}
+.nav-menu li a:hover {
+    background: #7C23C9;
+    color: #fff !important;
+}
+.navbar-toggler-icon {
+    color: #000 !important;
+}
+.navbar-brand {
+    color: #fff;
+    font-weight: 800;
+    font-family: Roboto;
+    font-size: 26px;
+}
+
+.header-link h1 {
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+    font-size: 50px;
+}
+.header-link p {
+    font-family: 'Roboto';
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.6);
+}
+.heder-img {
+    max-width: 350px;
+}
+
+@media (min-width: 992px) {
+    .header-link h1 {
+        margin-top: 12% !important;
+    }
+}

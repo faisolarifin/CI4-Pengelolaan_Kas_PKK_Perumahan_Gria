@@ -48,7 +48,8 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">NIK</th>
+                    <!-- <th scope="col">NIK</th> -->
+                    <th scope="col">Nama</th>
                     <th scope="col">Jenis Simpanan</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Jumlah</th>
@@ -63,7 +64,8 @@
                   ?>
                     <tr>
                         <th scope="row"><?= $i++; ?></th>
-                        <td><?= $row['nik'] ?></td>
+                        <!-- <td><?= $row['nik'] ?></td> -->
+                        <td><?= $row['nama'] ?></td>
                         <td><?= $row['jenis'] ?></td>
                         <td><?= $basic->myDate($row['tgl_simpan']) ?></td>
                         <td>Rp. <?= number_format($row['jumlah']) ?></td>

@@ -6,9 +6,9 @@ class LibBasic {
 
     public function hitungBunga($jumlah,$bunga,$lama, $bulan=false)
     {
-        $p = $jumlah;
+        $p = (int)$jumlah;
         $i = $bunga / 100;
-        $t = $lama;
+        $t = (int)$lama;
         $angsurantotal = 0;
         $angsuranpokok = round($p / $t, 2);
 

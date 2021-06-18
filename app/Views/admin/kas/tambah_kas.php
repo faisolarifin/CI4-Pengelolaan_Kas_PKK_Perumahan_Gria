@@ -41,7 +41,7 @@
             <div class="form-group">
               <label for="select1">Periode</label>
               <select class="form-control <?= ($validation->hasError('periode')) ? 'is-invalid' : '' ?>" id="select1" name="periode">
-                  <option selected="">Choose...</option>
+                  <option value="" selected="">Choose...</option>
                   <?php
                     foreach ($data as $row) :
                       echo "<option value='{$row['id_saldo']}'>{$row['bulan']} | {$row['tahun']}</option>";
@@ -55,7 +55,7 @@
             <div class="form-group">
               <label for="select1">Tipe</label>
               <select class="form-control <?= ($validation->hasError('tipe')) ? 'is-invalid' : '' ?>" id="select1" name="tipe">
-                  <option selected="">Choose...</option>
+                  <option value="" selected="">Choose...</option>
                   <option value="debit">Debit</option>
                   <option value="kredit">Kredit</option>
               </select>

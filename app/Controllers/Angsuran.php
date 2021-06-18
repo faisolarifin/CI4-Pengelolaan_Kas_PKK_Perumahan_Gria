@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\AngsuranModel;
 use App\Models\PinjamanModel;
 use App\Models\AnggotaModel;
+use App\Models\SettingModel;
 use App\Libraries\LibBasic;
 use App\Controllers\BaseController;
 
@@ -14,21 +15,22 @@ class Angsuran extends BaseController
 
   public function __construct()
   {
-    // $session = \Config\Services::session();
-    // if (!$session->has('id')) {
-    //   throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-    //   die;
-    // }
+    $session = \Config\Services::session();
+    if (!$session->has('id')) {
+      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+      die;
+    }
     $this->angsur = new AngsuranModel();
     $this->pinjam = new PinjamanModel();
     $this->anggota = new AnggotaModel();
+    $this->setting = new SettingModel();
     $this->basic = new LibBasic();
   }
 
   public function index()
 	{
 		return view('admin/angsuran/data_angsuran', [
-      'data' => $this->angsur->findAll(),
+      'data' => $this->angsur->getAngsuran()->findAll(),
       'basic' => $this->basic
     ]);
 	}
@@ -94,7 +96,7 @@ class Angsuran extends BaseController
       }
 
       $pinjam['ke'] = $ke;
-      $pinjam['bayar'] = $this->basic->hitungBunga($pinjam['jumlah'], 3, $pinjam['lama'], $ke);
+      $pinjam['bayar'] = $this->basic->hitungBunga($pinjam['jumlah'], $this->setting->find(1)['value'], $pinjam['lama'], $ke);
 
       $api['status'] = TRUE;
       $api['data'] = $pinjam;

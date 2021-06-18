@@ -20,6 +20,13 @@ class Auth extends BaseController
     ]);
 	}
 
+  public function landing()
+  {
+    return view('landing', [
+      
+    ]);
+  }
+
 	public function auth()
   {
     if (!$this->validate([

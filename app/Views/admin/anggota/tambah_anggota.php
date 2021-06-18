@@ -53,6 +53,20 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="text1">Telp</label>
+              <input type="text" class="form-control <?= ($validation->hasError('telp')) ? 'is-invalid' : '' ?>" id="text1" name="telp" value="<?= old('telp') ?>">
+              <div class="invalid-feedback">
+                <?= $validation->getError('telp') ?>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="text1">Alamat</label>
+              <input type="text" class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : '' ?>" id="text1" name="alamat" value="<?= old('alamat') ?>" placeholder="RT. 015/RW. 004, No. 10A">
+              <div class="invalid-feedback">
+                <?= $validation->getError('alamat') ?>
+              </div>
+            </div>
+            <div class="form-group">
               <label for="text1">Username</label>
               <input type="text" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?>" id="text1" name="username" value="<?= old('username') ?>">
                 <div class="invalid-feedback">
@@ -69,7 +83,7 @@
             <div class="form-group">
               <label for="select1">Role</label>
               <select class="form-control <?= ($validation->hasError('role')) ? 'is-invalid' : '' ?>" id="select1" name="role">
-                  <option selected="">Choose...</option>
+                  <option value="" selected="">Choose...</option>
                   <option value="anggota">Anggota</option>
                   <option value="admin">Admin</option>
               </select>

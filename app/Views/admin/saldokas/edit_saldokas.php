@@ -44,7 +44,7 @@
                 <div class="form-group">
                   <label for="select1">Bulan</label>
                   <select class="form-control <?= ($validation->hasError('bulan')) ? 'is-invalid' : '' ?>" id="select1" name="bulan">
-                      <option selected="">Choose...</option>
+                      <option value="" selected="">Choose...</option>
                       <option value="Januari" <?= $data['bulan']=='Januari' ? 'selected' : '' ?>>Januari</option>
                       <option value="Februari" <?= $data['bulan']=='Februari' ? 'selected' : '' ?>>Februari</option>
                       <option value="Maret" <?= $data['bulan']=='Maret' ? 'selected' : '' ?>>Maret</option>
@@ -59,7 +59,7 @@
                       <option value="Desember" <?= $data['bulan']=='Desember' ? 'selected' : '' ?>>Desember</option>
                   </select>
                   <div class="invalid-feedback">
-                    <?= $validation->getError('role') ?>
+                    <?= $validation->getError('bulan') ?>
                   </div>
                 </div>
                 <div class="form-group">

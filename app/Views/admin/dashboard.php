@@ -41,7 +41,7 @@
   <!-- *************************************************************** -->
   <div class="row">
     <!-- column -->
-    <div class="col-lg-12">
+    <!-- <div class="col-lg-12">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Site Visitor</h4>
@@ -63,7 +63,7 @@
           <div id="morris-area-chart2"></div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- column -->
   </div>
 </div>

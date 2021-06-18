@@ -34,14 +34,18 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->get('/', 'Auth::index');
-$routes->get('/auth', 'Auth::index');
-$routes->post('/', 'Auth::auth');
-$routes->post('/auth', 'Auth::auth');
 $routes->get('/logout', 'Auth::logout');
+$routes->get('/auth', 'Auth::index');
 
-if ($session->role == 'admin') :
+if ($session->role == '') :
 
+	$routes->get('/', 'Auth::landing');
+	$routes->get('/auth', 'Auth::index');
+	$routes->post('/auth', 'Auth::auth');
+	
+elseif ($session->role == 'admin') :
+		
+	$routes->get('/', 'Home::index');
 	$routes->get('/home', 'Home::index');
 	$routes->get('/anggota', 'Anggota::index');
 	$routes->get('/anggota/tambah', 'Anggota::tambah');
@@ -87,9 +91,17 @@ if ($session->role == 'admin') :
 	$routes->get('/angsuran/tambah', 'Angsuran::tambah');
 	$routes->post('/angsuran', 'Angsuran::save');
 	$routes->post('/apiangsur', 'Angsuran::angsuran_api');
+
+	$routes->get('/setting', 'Setting::index');
+	$routes->put('/setting', 'Setting::update');
+
+	$routes->get('/shu', 'Anggota::shu');
+	$routes->get('/shu/reset', 'Anggota::reset');
+	$routes->post('/shu/bagi', 'Anggota::bagi_shu');
 	
 elseif ($session->role == 'anggota') :
 
+	$routes->get('/', 'User::index');
 	$routes->get('/home', 'User::index');
 	$routes->get('/kas', 'User::kas');
 	$routes->get('/kas/(:num)', 'User::kas/$1');

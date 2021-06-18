@@ -13,11 +13,11 @@ class Kas extends BaseController
 
   public function __construct()
   {
-    // $session = \Config\Services::session();
-    // if (!$session->has('id')) {
-    //   throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
-    //   die;
-    // }
+    $session = \Config\Services::session();
+    if (!$session->has('id')) {
+      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+      die;
+    }
     $this->kas = new KasModel();
     $this->saldo = new SaldoKasModel();
     $this->basic = new LibBasic();
@@ -81,6 +81,8 @@ class Kas extends BaseController
       'keterangan' => $this->request->getPost('keterangan'),
     ]);
 
+    $this->session->setFlashdata('error-status', 'success');
+    $this->session->setFlashdata('error-message', 'Data berhasil ditambahkan');
     return redirect()->to('/kas');
   }
 

@@ -45,8 +45,9 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">NIK</th>
+                    <!-- <th scope="col">NIK</th> -->
                     <th scope="col">Tanggal Pinjam</th>
+                    <th scope="col">Nama</th>
                     <th scope="col">Jatuh Tempo</th>
                     <th scope="col">Lama</th>
                     <th scope="col">Jumlah</th>
@@ -63,7 +64,8 @@
                   ?>
                     <tr>
                         <th scope="row"><?= $i++; ?></th>
-                        <td><?= $row['nik'] ?></td>
+                        <!-- <td><?= $row['nik'] ?></td> -->
+                        <td><?= $row['nama'] ?></td>
                         <td><?= $basic->myDate($row['tgl_pinjam']) ?></td>
                         <td><?= $basic->myDate($row['jatuh_tempo']) ?></td>
                         <td><?= $row['lama'] ?> bulan</td>

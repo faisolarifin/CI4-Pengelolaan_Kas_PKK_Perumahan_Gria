@@ -7,13 +7,12 @@
 <div class="page-breadcrumb">
   <div class="row">
     <div class="col-7 align-self-center">
-      <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Transaksi Angsuran</h4>
+      <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Pembagian SHU</h4>
       <div class="d-flex align-items-center">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb m-0 p-0">
             <li class="breadcrumb-item"><a href="/" class="text-muted">Home</a></li>
-            <li class="breadcrumb-item text-muted" aria-current="page">Pinjaman</li>
-            <li class="breadcrumb-item text-muted active" aria-current="page">Angsuran</li>
+            <li class="breadcrumb-item text-muted active" aria-current="page">SHU</li>
           </ol>
         </nav>
       </div>
@@ -37,24 +36,44 @@
         <div class="card-body">
            <div class="row mb-2">
                <div class="col-sm-9">
-                  <h4 class="card-title">Angsuran</h4>
+                  <h4 class="card-title">SHU</h4>
 <!--                  <h6 class="card-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, voluptatibus..</h6>-->
                </div>
                <div class="col-sm-3 text-right">
-                   <a href="/angsuran/tambah"><button class="btn btn-primary custom-radius custom-shadow"> <i data-feather="plus-circle" class="svg-icon"></i> Angsur</button></a>
+                   <a href="/shu/reset"><button class="btn btn-danger custom-radius custom-shadow"> <i data-feather="refresh-cw" class="svg-icon"></i> Reset</button></a>
                </div>
            </div>
+           <form action="/shu/bagi" method="post">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label for="text1">Jumlah SHU</label>
+                  <input type="number" class="form-control" id="text1" name="jumlah" required>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label for="text1">Jasa Modal</label>
+                  <input type="number" class="form-control" id="text1" name="jasamodal" required>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="form-group">
+                  <label for="text1">&nbsp;</label>
+                  <button class="btn btn-primary d-block" type="submit">Bagi SHU</button>
+                </div>
+              </div>
+            </div>
+          </form> 
           <div class="table-responsive mt-4">
-            <table class="table table-striped" id="datatabel">
+            <table class="table table-striped">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Kode Pinjam</th>
-                    <!-- <th scope="col">NIK</th> -->
                     <th scope="col">Nama</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Angsuran ke</th>
-                    <th scope="col">Jumlah</th>
+                    <th scope="col">Alamat</th>
+                    <th scope="col">Total Simpanan</th>
+                    <th scope="col">SHU diperoleh</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -64,12 +83,11 @@
                   ?>
                     <tr>
                         <th scope="row"><?= $i++; ?></th>
-                        <td><?= $row['id_pinjam'] ?></td>
-                        <!-- <td><?= $row['nik'] ?></td> -->
                         <td><?= $row['nama'] ?></td>
-                        <td><?= $basic->myDate($row['tanggal']) ?></td>
-                        <td><?= $row['angsuran_ke'] ?></td>
-                        <td>Rp. <?= number_format($row['jumlah']) ?></td>
+                        <td><?= $row['alamat'] ?></td>
+                        <td>Rp. <?= number_format($row['tot_simpan']) ?></td>
+                        <td>Rp. <?= number_format($row['jml_shu']) ?></td>
+                       
                     </tr>
                 <?php
                 endforeach;

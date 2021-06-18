@@ -42,7 +42,7 @@
             <div class="form-group">
               <label for="select1">Bulan</label>
               <select class="form-control <?= ($validation->hasError('bulan')) ? 'is-invalid' : '' ?>" id="select1" name="bulan">
-                  <option selected="">Choose...</option>
+                  <option value="" selected="">Choose...</option>
                   <option value="Januari">Januari</option>
                   <option value="Februari">Februari</option>
                   <option value="Maret">Maret</option>
@@ -57,7 +57,7 @@
                   <option value="Desember">Desember</option>
               </select>
               <div class="invalid-feedback">
-                <?= $validation->getError('role') ?>
+                <?= $validation->getError('bulan') ?>
               </div>
             </div>
             <div class="form-group">
